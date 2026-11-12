@@ -1,0 +1,163 @@
+.register-card {
+    width: min(480px, 100%);
+}
+
+.strength {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 4px;
+}
+
+.strength-bars {
+    flex: 1;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.strength-bars span {
+    height: 5px;
+
+    background: rgba(255, 255, 255, 0.09);
+    border-radius: 999px;
+
+    transition:
+        background 220ms ease,
+        box-shadow 220ms ease;
+}
+
+.strength small {
+    min-width: 96px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    font-weight: 600;
+    text-align: right;
+}
+
+.strength-bars[data-level="1"] span:nth-child(-n + 1) {
+    background: #ff6b5e;
+}
+
+.strength-bars[data-level="2"] span:nth-child(-n + 2) {
+    background: var(--sun);
+}
+
+.strength-bars[data-level="3"] span:nth-child(-n + 3) {
+    background: var(--sun-light);
+}
+
+.strength-bars[data-level="4"] span:nth-child(-n + 4) {
+    background: var(--green);
+    box-shadow: 0 0 10px rgba(101, 237, 145, 0.45);
+}
+
+/* Помилка поля */
+
+.field-error {
+    color: #ff8a80;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.field input.is-invalid {
+    border-color: #ff6b5e;
+    box-shadow: 0 0 0 4px rgba(255, 107, 94, 0.14);
+}
+
+
+.checkbox {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    margin-top: 2px;
+
+    cursor: pointer;
+}
+
+.checkbox input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+}
+
+.checkbox-box {
+    width: 22px;
+    height: 22px;
+
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+
+    margin-top: 1px;
+
+    color: transparent;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 7px;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    transition:
+        background 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.checkbox:hover .checkbox-box {
+    border-color: rgba(101, 237, 145, 0.5);
+}
+
+.checkbox input:checked + .checkbox-box {
+    color: #032016;
+    background: var(--green);
+    border-color: var(--green);
+
+    box-shadow: 0 0 14px rgba(101, 237, 145, 0.35);
+}
+
+.checkbox input:focus-visible + .checkbox-box {
+    outline: 3px solid var(--sun-light);
+    outline-offset: 3px;
+}
+
+.checkbox-text {
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.checkbox-text a {
+    color: var(--green);
+
+    font-weight: 600;
+    text-decoration: none;
+
+    border-bottom: 1px solid rgba(101, 237, 145, 0.35);
+
+    transition: border-color 180ms ease;
+}
+
+.checkbox-text a:hover {
+    border-color: var(--green);
+}
+
+@media (max-width: 520px) {
+    .strength small {
+        min-width: 80px;
+    }
+}
